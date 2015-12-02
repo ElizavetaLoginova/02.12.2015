@@ -11,7 +11,6 @@ int main()
 {
 	while (true)
 	{
-
 		const int N = 100;
 		int a[N] = { 0 };
 		int n = EnterDimention(N);
