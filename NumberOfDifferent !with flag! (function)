@@ -1,0 +1,14 @@
+int NumberOfDifferent(int a[], int n)
+{
+	int counter = 0;
+	for (int i = 0; i <= n - 1; i++)
+	{
+		bool f = true;
+		for (int j = 0; j < i; j++)
+		if (a[i] == a[j])
+			f = false;
+		if (f)
+			counter++;
+	}
+	return counter;
+}
