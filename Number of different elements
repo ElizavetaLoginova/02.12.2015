@@ -1,0 +1,80 @@
+#include <iostream>
+using namespace std;
+
+void EnterArray(int a[], int n);
+void DisplayArray(int[], int);
+int NumberOfDifferent(int [], int);
+int EnterDimention(int);
+
+int main()
+{
+	while (true)
+	{
+		system("cls");
+		const int N = 100;
+		int a[N] = { 0 };
+		int n = EnterDimention(N);
+		EnterArray(a, n);
+		cout << "Source array: " << endl;
+		DisplayArray(a, n);
+		
+		cout << endl << "Number of different elements: " << NumberOfDifferent(a, n)<< endl;
+		system("pause");
+		system("cls");
+
+		char yes;
+		cout << "Would you like to countinie? Press y/Y: " << endl;
+		cin >> yes;
+		if (yes == 'y' || yes == 'Y')
+			continue;
+		break;
+	}
+	return 0;
+}
+
+
+void EnterArray(int a[], int n)
+{
+	cout << "Enter array elements: " << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << "a[" << (i + 1) << "] = ";
+		cin >> a[i];
+	}
+	//for (int i = 0; i < n; i++)
+	//a[	a[i] = rand() % 200 - rand() % 100;
+}
+void DisplayArray(int a[], int n)
+{
+	for (int i = 0; i < n; i++)
+		cout << a[i] << ", ";
+}
+int NumberOfDifferent(int a[], int n)
+{
+	int counter = 0;
+	for (int i = 0; i <= n - 1 ; i++)
+	{
+		int j = 0;
+		for ( ; j < i; j++)
+		{
+			if (a[i] == a[j]) break;
+		}
+			if (i == j) counter++;
+	}
+	return counter;
+}
+
+
+
+int EnterDimention(int n)
+{
+	int k;
+	while (true)
+	{
+		cout << "Enter the amount of elements (n <= 100): ";
+		cin >> k;
+		if (k > 0 && k <= n) return k;
+		cout << "Error! Try again...";
+	}
+
+}
